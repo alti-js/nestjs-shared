@@ -24,19 +24,33 @@ export class TransformInterceptor<T>
     next: CallHandler
   ): Observable<Response<T>> {
     const request = context.switchToHttp().getRequest<Request>();
+    const response = context.switchToHttp().getResponse();
+    const statusCode = response.statusCode;
+    let message =
+      response.message || context.switchToHttp().getResponse().message;
+    if (statusCode === 200 || statusCode === 201) {
+      message = message || "Success";
+    } else if (statusCode === 400) {
+      message = message || "Bad Request";
+    } else if (statusCode === 401) {
+      message = message || "Unauthorized";
+    } else if (statusCode === 403) {
+      message = message || "Forbidden";
+    } else if (statusCode === 404) {
+      message = message || "Not Found";
+    } else if (statusCode === 500) {
+      message = message || "Internal Server Error";
+    }
     return next
       .handle()
       .pipe(
         map((data) =>
           ResponseMapper.toResponseDTO(
             request.headers["x-correlation-id"] as string,
-            context.switchToHttp().getResponse().statusCode,
+            statusCode,
             data.result || data,
             request.originalUrl || request.url,
-            data.message ||
-              context.switchToHttp().getResponse().message ||
-              request.originalUrl ||
-              request.url
+            message
           )
         )
       );
