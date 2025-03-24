@@ -5,6 +5,7 @@ export class ResponseMapper {
     correlationId: string,
     statusCode: number,
     data: T,
+    request: string,
     message?: string
   ): ResponseDTO<T> {
     return {
@@ -12,6 +13,7 @@ export class ResponseMapper {
       message,
       statusCode,
       data,
+      request,
     };
   }
 }

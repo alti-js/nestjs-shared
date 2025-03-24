@@ -32,7 +32,11 @@ export class TransformInterceptor<T>
             request.headers["x-correlation-id"] as string,
             context.switchToHttp().getResponse().statusCode,
             data.result || data,
-            data.message || request.originalUrl || request.url
+            data.message ||
+              context.switchToHttp().getResponse().message ||
+              request.originalUrl ||
+              request.url,
+            request.originalUrl || request.url
           )
         )
       );
