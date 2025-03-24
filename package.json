@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alti-js/nestjs-cache.git"
+    "url": "git+https://github.com/alti-js/nestjs-common.git"
   },
   "keywords": [
     "nestjs",
@@ -25,9 +25,9 @@
   "author": "Angel Sanchez",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alti-js/nestjs-cache/issues"
+    "url": "https://github.com/alti-js/nestjs-common/issues"
   },
-  "homepage": "https://github.com/alti-js/nestjs-cache/#readme",
+  "homepage": "https://github.com/alti-js/nestjs-common/#readme",
   "dependencies": {
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
