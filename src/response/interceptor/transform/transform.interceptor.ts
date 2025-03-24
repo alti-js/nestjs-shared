@@ -28,7 +28,7 @@ export class TransformInterceptor<T>
     const statusCode = response.statusCode;
     let message =
       response.message || context.switchToHttp().getResponse().message;
-    if (statusCode === 200 || statusCode === 201) {
+    if (statusCode >= 200 && statusCode < 300) {
       message = message || "Success";
     } else if (statusCode === 400) {
       message = message || "Bad Request";
@@ -40,6 +40,8 @@ export class TransformInterceptor<T>
       message = message || "Not Found";
     } else if (statusCode === 500) {
       message = message || "Internal Server Error";
+    } else if (statusCode >= 400 && statusCode < 600) {
+      message = message || "Error";
     }
     return next
       .handle()
