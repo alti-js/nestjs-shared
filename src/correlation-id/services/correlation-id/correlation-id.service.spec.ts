@@ -9,7 +9,7 @@ describe('CorrelationIdService', () => {
       providers: [CorrelationIdService],
     }).compile();
 
-    service = module.get<CorrelationIdService>(CorrelationIdService);
+    service = await module.resolve<CorrelationIdService>(CorrelationIdService);
   });
 
   it('should be defined', () => {
