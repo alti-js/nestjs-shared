@@ -4,3 +4,4 @@ export * from "./interceptor/transform/transform.interceptor";
 export * from "./filters/http-exception/http-exception.filter";
 export * from "./mapper/response.mapper";
 export * from "./models/response.dto";
+export * from "./interceptor/case-transform/case-transform.interceptor";

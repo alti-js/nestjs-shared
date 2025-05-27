@@ -6,8 +6,8 @@ import {
 } from "@nestjs/common";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
-import { ResponseMapper } from "src/response/mapper/response.mapper";
 import { Request } from "express";
+import { ResponseMapper } from '../../mapper/response.mapper';
 
 export interface Response<T> {
   statusCode: number;
