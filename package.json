@@ -1,6 +1,6 @@
 {
   "name": "@alti-js/nestjs-common",
-  "version": "0.21.1",
+  "version": "0.21.3",
   "description": "NestJS common utilities",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
