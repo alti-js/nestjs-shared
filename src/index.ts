@@ -3,3 +3,4 @@ export * from "./common/models/config.dto";
 export * from "./correlation-id/index";
 export * from "./response/index";
 export * from "./helpers/config.helper";
+export * from "./request/index";
