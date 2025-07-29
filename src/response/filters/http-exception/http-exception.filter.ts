@@ -26,7 +26,7 @@ export class HttpExceptionFilter implements ExceptionFilter {
       correlation_id:
           request.headers['x-correlation-id'] ||
           request.headers['correlation-id'],
-      message: exception.getResponse(),
+      message: exception.getResponse?.() || exception.message || 'Internal server error',
     };
 
     response.status(status).json(errorResponse);
